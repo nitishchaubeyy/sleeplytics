@@ -4,6 +4,7 @@ import { checkUser } from '@/lib/checkUser';
 
 export default async function Navbar() {
   const user = await checkUser();
+  console.log('Current User:', user);
 
   return (
     <nav className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 backdrop-blur-md border-b border-white/30 shadow-sm sticky top-0 z-50'>
