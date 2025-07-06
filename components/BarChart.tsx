@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ScriptableTooltipContext,
 } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -45,18 +46,15 @@ const BarChart = ({ records }: { records: Record[] }) => {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       tooltip: {
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         titleColor: '#111',
         bodyColor: '#333',
         borderColor: '#e0e0e0',
         borderWidth: 1,
-        // 🔥 FIXED THIS PART COMPLETELY
         titleFont: {
-          weight: 'bold' as 'bold' | 'normal' | 'lighter' | 'bolder' | number,
+          weight: 'bold' as 'bold', // ✅ Safe version
         },
         padding: 10,
       },
@@ -66,7 +64,10 @@ const BarChart = ({ records }: { records: Record[] }) => {
         title: {
           display: true,
           text: 'Date',
-          font: { size: 14, weight: 'bold' as 'bold' },
+          font: {
+            size: 14,
+            weight: 'bold' as 'bold',
+          },
           color: '#4B5563',
         },
         ticks: {
@@ -79,7 +80,10 @@ const BarChart = ({ records }: { records: Record[] }) => {
         title: {
           display: true,
           text: 'Hours Slept',
-          font: { size: 14, weight: 'bold' as 'bold' },
+          font: {
+            size: 14,
+            weight: 'bold' as 'bold',
+          },
           color: '#4B5563',
         },
         ticks: {
@@ -97,8 +101,8 @@ const BarChart = ({ records }: { records: Record[] }) => {
   };
 
   return (
-    <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-xl p-4 shadow-sm'>
-      <div className='bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg h-[350px]'>
+    <div className="bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-xl p-4 shadow-sm">
+      <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg h-[350px]">
         <Bar data={data} options={options} />
       </div>
     </div>
