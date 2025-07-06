@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Sleep Tracker',
+  title: 'Sleeplytics',
   description: 'A simple sleep tracker app',
 };
 
