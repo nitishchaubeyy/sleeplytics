@@ -9,6 +9,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ScriptableTooltipContext,
+  FontSpec,
 } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -26,8 +28,8 @@ const BarChart = ({ records }: { records: Record[] }) => {
         data: records.map((record) => record.amount),
         backgroundColor: records.map((record) =>
           record.amount < 7
-            ? 'rgba(255, 182, 193, 0.6)' // Soft pastel pink
-            : 'rgba(144, 238, 144, 0.6)' // Soft pastel green
+            ? 'rgba(255, 182, 193, 0.6)'
+            : 'rgba(144, 238, 144, 0.6)'
         ),
         borderColor: records.map((record) =>
           record.amount < 7
@@ -54,9 +56,9 @@ const BarChart = ({ records }: { records: Record[] }) => {
         bodyColor: '#333',
         borderColor: '#e0e0e0',
         borderWidth: 1,
-        titleFont: {
-          weight: 'bold' as const, // ✅ FIXED: not a function, not a string literal
-        },
+        titleFont: (_ctx: ScriptableTooltipContext<'bar'>): Partial<FontSpec> => ({
+          weight: 'bold',
+        }),
         padding: 10,
       },
     },
