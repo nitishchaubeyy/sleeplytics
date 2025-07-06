@@ -55,7 +55,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
         borderColor: '#e0e0e0',
         borderWidth: 1,
         titleFont: {
-          weight: 'bold' as 'bold', // ✅ Type assertion added
+          weight: 'bold' as const, // ✅ FIXED: not a function, not a string literal
         },
         padding: 10,
       },
