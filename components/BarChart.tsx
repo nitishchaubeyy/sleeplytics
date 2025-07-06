@@ -9,7 +9,6 @@ import {
   Title,
   Tooltip,
   Legend,
-  ChartOptions,
 } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -27,8 +26,8 @@ const BarChart = ({ records }: { records: Record[] }) => {
         data: records.map((record) => record.amount),
         backgroundColor: records.map((record) =>
           record.amount < 7
-            ? 'rgba(255, 182, 193, 0.6)' // pastel pink
-            : 'rgba(144, 238, 144, 0.6)' // pastel green
+            ? 'rgba(255, 182, 193, 0.6)'
+            : 'rgba(144, 238, 144, 0.6)'
         ),
         borderColor: records.map((record) =>
           record.amount < 7
@@ -42,7 +41,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
     ],
   };
 
-  const options: ChartOptions<'bar'> = {
+  const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -55,9 +54,9 @@ const BarChart = ({ records }: { records: Record[] }) => {
         bodyColor: '#333',
         borderColor: '#e0e0e0',
         borderWidth: 1,
+        // 🔥 FIXED THIS PART COMPLETELY
         titleFont: {
-          size: 14,
-          weight: 'bold',
+          weight: 'bold' as 'bold' | 'normal' | 'lighter' | 'bolder' | number,
         },
         padding: 10,
       },
@@ -67,36 +66,24 @@ const BarChart = ({ records }: { records: Record[] }) => {
         title: {
           display: true,
           text: 'Date',
-          font: {
-            size: 14,
-            weight: 'bold',
-          },
+          font: { size: 14, weight: 'bold' as 'bold' },
           color: '#4B5563',
         },
         ticks: {
-          font: {
-            size: 12,
-          },
+          font: { size: 12 },
           color: '#6B7280',
         },
-        grid: {
-          display: false,
-        },
+        grid: { display: false },
       },
       y: {
         title: {
           display: true,
           text: 'Hours Slept',
-          font: {
-            size: 14,
-            weight: 'bold',
-          },
+          font: { size: 14, weight: 'bold' as 'bold' },
           color: '#4B5563',
         },
         ticks: {
-          font: {
-            size: 12,
-          },
+          font: { size: 12 },
           color: '#6B7280',
         },
         grid: {
@@ -110,8 +97,8 @@ const BarChart = ({ records }: { records: Record[] }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-xl p-4 shadow-sm">
-      <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg h-[350px]">
+    <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 rounded-xl p-4 shadow-sm'>
+      <div className='bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg h-[350px]'>
         <Bar data={data} options={options} />
       </div>
     </div>
