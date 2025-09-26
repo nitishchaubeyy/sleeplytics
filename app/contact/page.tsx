@@ -97,11 +97,11 @@ const ContactPage = () => {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
             <div>
               <h3 className='text-xl font-bold mb-2'>Email</h3>
-              <p className='text-gray-700'>nitishrchaubey9926@gmail.com</p>
+              <p className='text-gray-700'>vu4f2223069@pvppcoe.ac.in</p>
             </div>
             <div>
               <h3 className='text-xl font-bold mb-2'>Phone</h3>
-              <p className='text-gray-700'>+91 9653442030</p>
+              <p className='text-gray-700'>+91 234567891</p>
             </div>
             <div>
               <h3 className='text-xl font-bold mb-2'>Address</h3>
