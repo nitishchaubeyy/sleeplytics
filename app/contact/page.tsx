@@ -97,7 +97,7 @@ const ContactPage = () => {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
             <div>
               <h3 className='text-xl font-bold mb-2'>Email</h3>
-              <p className='text-gray-700'>vu4f2223069@pvppcoe.ac.in</p>
+              <p className='text-gray-700'>abc@example.com</p>
             </div>
             <div>
               <h3 className='text-xl font-bold mb-2'>Phone</h3>
